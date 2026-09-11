@@ -1,6 +1,15 @@
-/* Mobile-first styling for ABP LIVE News Web App */
+/* Mobile-first, rock-solid styles for ABP LIVE News Mobile Web */
 
-/* Hide scrollbars */
+:root {
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+/* Hide scrollbars but allow scrolling */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -10,46 +19,38 @@
   scrollbar-width: none;
 }
 
+/* Smooth touch scrolling */
+.touch-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
 /* Breaking News Ticker Animation */
 @keyframes ticker {
   0% { transform: translate3d(0, 0, 0); }
   100% { transform: translate3d(-50%, 0, 0); }
 }
 
-.ticker-content {
+.ticker-track {
   display: inline-flex;
   white-space: nowrap;
-  animation: ticker 28s linear infinite;
+  animation: ticker 32s linear infinite;
+  will-change: transform;
 }
 
-.ticker-content:hover {
+.ticker-track:hover {
   animation-play-state: paused;
 }
 
 /* Pulsing Live Beacon */
 @keyframes pulse-ring {
   0% { transform: scale(0.95); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.4; }
+  50% { transform: scale(1.35); opacity: 0.4; }
   100% { transform: scale(0.95); opacity: 1; }
 }
 
 .pulse-beacon {
   animation: pulse-ring 1.8s ease-in-out infinite;
-}
-
-/* Bottom Sheet / Article Drawer */
-.bottom-sheet {
-  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.bottom-sheet.closed {
-  transform: translateY(100%);
-  pointer-events: none;
-}
-
-.bottom-sheet.open {
-  transform: translateY(0);
-  pointer-events: auto;
 }
 
 /* Line Clamps */
@@ -68,26 +69,29 @@
 }
 
 /* Tap Feedback */
-.tap-highlight:active {
+.tap-active:active {
   transform: scale(0.98);
-  opacity: 0.92;
+  opacity: 0.9;
+  transition: transform 0.1s ease;
 }
 
-/* Google AdSense / Native Ad Styling */
-.ad-container {
-  position: relative;
-  background-color: #f8fafc;
+/* Modal Transitions */
+.modal-overlay {
+  transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
-.dark .ad-container {
-  background-color: #0f172a;
+.modal-sheet {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
-.ad-label {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #94a3b8;
+/* Bottom Nav Safe Spacing */
+.safe-bottom-padding {
+  padding-bottom: calc(4.25rem + var(--safe-bottom));
 }
 
+/* Prevent image dragging / selection on mobile */
+img, svg {
+  user-select: none;
+  -webkit-user-drag: none;
+}

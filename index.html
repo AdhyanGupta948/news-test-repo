@@ -21,50 +21,48 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
           },
           colors: {
             abp: {
               red: '#e11d48',
               darkred: '#be123c',
               gold: '#f59e0b',
-              navy: '#0f172a'
             }
           }
         }
       }
     }
   </script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2026_clean_ui">
 </head>
-<body class="bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans min-h-screen antialiased selection:bg-rose-500 selection:text-white">
+<body class="bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans min-h-screen antialiased selection:bg-rose-500 selection:text-white safe-bottom-padding">
 
-  <!-- Main Mobile-Responsive Container -->
-  <div class="w-full max-w-lg mx-auto min-h-screen bg-white dark:bg-slate-900 shadow-xl flex flex-col relative sm:border-x sm:border-slate-200 dark:sm:border-slate-800">
+  <!-- Mobile Centered Wrapper (100% on phone, max-w-md on desktop) -->
+  <div class="w-full max-w-md mx-auto min-h-screen bg-white dark:bg-slate-900 shadow-xl relative sm:border-x sm:border-slate-200 dark:sm:border-slate-800">
     
-    <!-- Top AdSense Leaderboard Banner (Mobile 320x50 Ad Unit) -->
+    <!-- Top Header AdSense Banner (Mobile 320x50 Ad Unit) -->
     <div id="top-ad-banner" class="bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 py-1.5 px-3 flex items-center justify-between text-xs select-none">
-      <div class="flex items-center gap-2 overflow-hidden cursor-pointer" onclick="onAdClicked('Top Header: Galaxy Ultra 5G')">
-        <span class="bg-slate-300 dark:bg-slate-700 text-[9px] font-bold px-1.5 py-0.5 rounded text-slate-700 dark:text-slate-300">AD</span>
+      <div class="flex items-center gap-2 overflow-hidden cursor-pointer" onclick="onAdClicked('Top Header: Big Billion Days')">
+        <span class="bg-slate-300 dark:bg-slate-700 text-[9px] font-bold px-1.5 py-0.5 rounded text-slate-700 dark:text-slate-300 flex-shrink-0">AD</span>
         <p class="text-[11px] font-medium text-slate-700 dark:text-slate-300 truncate">
-          🔥 <strong class="font-bold text-rose-600 dark:text-rose-400">Flipkart Big Sale:</strong> Up to 75% Off on 5G Phones & Laptops
+          🔥 <strong class="font-bold text-rose-600 dark:text-rose-400">Flipkart Mega Sale:</strong> Up to 75% Off on 5G Phones & Gadgets
         </p>
       </div>
-      <div class="flex items-center gap-1.5 flex-shrink-0 ml-2">
-        <span class="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 cursor-pointer" onclick="onAdClicked('Top Header: Galaxy Ultra 5G')">Shop ↗</span>
-        <button onclick="dismissTopAd()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-0.5" title="Close Ad">
+      <div class="flex items-center gap-2 flex-shrink-0 ml-2">
+        <span class="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 cursor-pointer" onclick="onAdClicked('Top Header: Big Billion Days')">Shop ↗</span>
+        <button onclick="dismissTopAd()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 font-bold text-xs" title="Dismiss Ad">
           ✕
         </button>
       </div>
     </div>
 
-    <!-- Main Navigation Header (ABP LIVE branding) -->
-    <header class="sticky top-0 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-3.5 py-2.5 flex items-center justify-between shadow-sm">
-      <!-- Left: Logo & Live TV -->
+    <!-- Main ABP LIVE App Bar -->
+    <header class="sticky top-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-3.5 py-2.5 flex items-center justify-between shadow-xs">
+      <!-- Left: ABP Brand Logo & LIVE TV -->
       <div class="flex items-center gap-2.5">
-        <a href="#" onclick="switchTab('home')" class="flex items-center gap-1.5 tap-highlight">
-          <!-- ABP Brand Badge -->
-          <div class="bg-rose-600 text-white font-extrabold text-sm tracking-tighter px-2 py-0.5 rounded flex items-center shadow-sm">
+        <a href="#" onclick="switchTab('home')" class="flex items-center gap-1.5 tap-active">
+          <div class="bg-rose-600 text-white font-black text-sm tracking-tighter px-2 py-0.5 rounded flex items-center shadow-xs">
             <span>abp</span>
           </div>
           <div class="flex flex-col">
@@ -73,52 +71,52 @@
           </div>
         </a>
 
-        <!-- Live TV Pill -->
-        <button onclick="showToast('🔴 ABP LIVE TV 24x7 Stream is playing in background')" class="ml-1 bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-900/60 text-rose-600 dark:text-rose-400 px-2 py-0.5 rounded-full flex items-center gap-1 text-[10px] font-bold tap-highlight">
+        <!-- Live TV Stream Pill -->
+        <button onclick="showToast('🔴 ABP LIVE TV 24x7 Stream playing in background')" class="ml-1 bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-900/60 text-rose-600 dark:text-rose-400 px-2 py-0.5 rounded-full flex items-center gap-1 text-[10px] font-bold tap-active">
           <span class="w-1.5 h-1.5 rounded-full bg-rose-600 pulse-beacon"></span>
           <span>LIVE TV</span>
         </button>
       </div>
 
-      <!-- Right: Search, Dark Mode, Saved -->
+      <!-- Right: Search, Theme Toggle, Alerts -->
       <div class="flex items-center gap-1">
-        <!-- Search Trigger Toggle -->
-        <button onclick="toggleSearchBar()" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 tap-highlight" title="Search">
+        <!-- Search Trigger -->
+        <button onclick="toggleSearchBar()" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 tap-active" title="Search">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         </button>
 
-        <!-- Dark/Light Mode Button -->
-        <button id="theme-toggle-btn" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 tap-highlight" title="Toggle Dark/Light Mode">
+        <!-- Dark/Light Theme Switcher -->
+        <button id="theme-toggle-btn" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 tap-active" title="Toggle Dark/Light Mode">
           <svg class="w-4 h-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
           <svg class="w-4 h-4 hidden dark:block text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
         </button>
 
-        <!-- Notifications -->
-        <button onclick="showToast('You have 3 unread ABP breaking alerts!')" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 relative tap-highlight" title="Notifications">
+        <!-- Notification Bell -->
+        <button onclick="showToast('You have 2 unread ABP Breaking Alerts!')" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 relative tap-active" title="Notifications">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
           <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-600 rounded-full"></span>
         </button>
       </div>
     </header>
 
-    <!-- Expandable Search Input -->
-    <div id="search-box-container" class="hidden px-3.5 py-2 bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-800">
+    <!-- Expandable Search Bar Drawer -->
+    <div id="search-box-container" class="hidden px-3.5 py-2 bg-slate-50 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-800">
       <div class="relative flex items-center">
         <svg class="w-4 h-4 text-slate-400 absolute left-3 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-        <input id="search-input" type="text" placeholder="Search breaking news, politics, cricket, tech..." class="w-full bg-white dark:bg-slate-900 text-xs text-slate-800 dark:text-slate-200 pl-9 pr-8 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500 transition border border-slate-200 dark:border-slate-700 shadow-inner" />
-        <button onclick="clearSearch()" class="absolute right-2.5 text-slate-400 hover:text-slate-600 text-xs">✕</button>
+        <input id="search-input" type="text" placeholder="Search news, topics, sports..." class="w-full bg-white dark:bg-slate-900 text-xs text-slate-800 dark:text-slate-200 pl-9 pr-8 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500 border border-slate-200 dark:border-slate-700" />
+        <button onclick="clearSearch()" class="absolute right-2.5 text-slate-400 hover:text-slate-600 text-xs font-bold">✕</button>
       </div>
     </div>
 
-    <!-- Breaking News Ticker (ABP Red Strip) -->
-    <div class="bg-rose-600 text-white px-3 py-1.5 flex items-center overflow-hidden shadow-sm">
-      <div class="flex items-center gap-1.5 flex-shrink-0 mr-3 pr-2.5 border-r border-rose-400">
+    <!-- Breaking News Live Marquee (ABP Red Strip) -->
+    <div class="bg-rose-600 text-white px-3 py-1.5 flex items-center overflow-hidden shadow-xs">
+      <div class="flex items-center gap-1.5 flex-shrink-0 mr-3 pr-2 border-r border-rose-400">
         <span class="w-2 h-2 rounded-full bg-white pulse-beacon"></span>
         <span class="text-[10px] font-black tracking-wider uppercase">BREAKING</span>
       </div>
       <div class="overflow-hidden whitespace-nowrap flex-1">
-        <div class="ticker-content text-[11.5px] font-bold">
-          <span class="mr-8">🪙 Selling rare old coins in India explodes: Vintage ₹1 & ₹2 coins fetching up to ₹5 Lakh</span>
+        <div class="ticker-track text-[11px] font-bold">
+          <span class="mr-8">🪙 Selling rare old coins in India explodes: Vintage ₹1 &amp; ₹2 coins fetching up to ₹5 Lakh</span>
           <span class="mr-8">🏏 IPL 2026: 19-year-old speedster sold for historic ₹20.5 Crore</span>
           <span class="mr-8">💰 Reserve Bank rolls out offline UPI transactions with zero internet</span>
           <span class="mr-8">⚡ EV sales cross 40% of city registrations in landmark quarter</span>
@@ -126,59 +124,59 @@
       </div>
     </div>
 
-    <!-- Web Stories Bar (Instagram/Shorts style circles) -->
+    <!-- Visual Stories Bar (Shorts/Instagram Circles) -->
     <div class="bg-white dark:bg-slate-900 py-3 px-3.5 border-b border-slate-100 dark:border-slate-800">
       <div class="flex items-center justify-between mb-2">
         <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1">
           <span class="text-rose-600 font-extrabold">▶</span> ABP Visual Stories
         </span>
-        <span class="text-[10px] font-semibold text-rose-600 dark:text-rose-400">See All</span>
+        <span class="text-[10px] font-semibold text-rose-600 dark:text-rose-400">Live</span>
       </div>
-      <div id="stories-scroll" class="flex items-center gap-3.5 overflow-x-auto no-scrollbar pb-1">
-        <!-- Injected via JS -->
+      <div id="stories-scroll" class="flex items-center gap-3.5 overflow-x-auto no-scrollbar touch-scroll pb-1">
+        <!-- Rendered by app.js with 100% self-contained graphics -->
       </div>
     </div>
 
-    <!-- Category Chips Strip (Horizontal Sliding Navigation) -->
-    <div class="bg-white dark:bg-slate-900 px-3.5 py-2 border-b border-slate-200 dark:border-slate-800 sticky top-[49px] z-20 shadow-sm">
-      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
-        <button class="category-chip tap-highlight flex-shrink-0 px-3 py-1 rounded-full text-xs font-bold transition bg-rose-600 text-white shadow-sm" data-category="all">
+    <!-- Sticky Category Chips Strip -->
+    <div class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3.5 py-2 border-b border-slate-200 dark:border-slate-800 sticky top-[49px] z-20 shadow-xs">
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar touch-scroll py-0.5">
+        <button class="category-chip tap-active flex-shrink-0 px-3 py-1 rounded-full text-xs font-bold transition bg-rose-600 text-white shadow-xs" data-category="all">
           Top Stories
         </button>
-        <button class="category-chip tap-highlight flex-shrink-0 px-3 py-1 rounded-full text-xs font-bold transition bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300" data-category="india">
+        <button class="category-chip tap-active flex-shrink-0 px-3 py-1 rounded-full text-xs font-bold transition bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300" data-category="india">
           🇮🇳 India
         </button>
-        <button class="category-chip tap-highlight flex-shrink-0 px-3 py-1 rounded-full text-xs font-bold transition bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300" data-category="tech">
+        <button class="category-chip tap-active flex-shrink-0 px-3 py-1 rounded-full text-xs font-bold transition bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300" data-category="tech">
           💻 Tech
         </button>
-        <button class="category-chip tap-highlight flex-shrink-0 px-3 py-1 rounded-full text-xs font-bold transition bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300" data-category="ai">
+        <button class="category-chip tap-active flex-shrink-0 px-3 py-1 rounded-full text-xs font-bold transition bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300" data-category="ai">
           🤖 AI
         </button>
-        <button class="category-chip tap-highlight flex-shrink-0 px-3 py-1 rounded-full text-xs font-bold transition bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300" data-category="sports">
+        <button class="category-chip tap-active flex-shrink-0 px-3 py-1 rounded-full text-xs font-bold transition bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300" data-category="sports">
           🏏 Cricket
         </button>
-        <button class="category-chip tap-highlight flex-shrink-0 px-3 py-1 rounded-full text-xs font-bold transition bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300" data-category="business">
+        <button class="category-chip tap-active flex-shrink-0 px-3 py-1 rounded-full text-xs font-bold transition bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300" data-category="business">
           📈 Business
         </button>
-        <button class="category-chip tap-highlight flex-shrink-0 px-3 py-1 rounded-full text-xs font-bold transition bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300" data-category="entertainment">
+        <button class="category-chip tap-active flex-shrink-0 px-3 py-1 rounded-full text-xs font-bold transition bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300" data-category="entertainment">
           🎬 Cinema
         </button>
-        <button class="category-chip tap-highlight flex-shrink-0 px-3 py-1 rounded-full text-xs font-bold transition bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300" data-category="world">
+        <button class="category-chip tap-active flex-shrink-0 px-3 py-1 rounded-full text-xs font-bold transition bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300" data-category="world">
           🌍 World
         </button>
       </div>
     </div>
 
-    <!-- Main Scrollable News Feed -->
-    <main id="feed-scrollable" class="flex-1 px-3.5 pt-3 pb-24">
+    <!-- Main News Feed Container (Standard Document Flow - No Trapped Scroll) -->
+    <main class="w-full px-3.5 pt-3 pb-6">
       <div id="news-feed" class="w-full">
-        <!-- Dynamically rendered by app.js -->
+        <!-- Rendered by app.js -->
       </div>
     </main>
 
-    <!-- Sticky Bottom Mobile Ad Unit (AdMob / AdSense 320x50 Banner) -->
-    <div id="sticky-bottom-ad" class="fixed bottom-14 left-0 right-0 z-30 px-3 max-w-lg mx-auto pointer-events-none">
-      <div class="pointer-events-auto bg-slate-900 text-white rounded-xl p-2.5 shadow-2xl flex items-center justify-between border border-slate-700 cursor-pointer tap-highlight" onclick="onAdClicked('Sticky Anchor Ad: Car Insurance')">
+    <!-- Sticky Bottom AdMob Banner Unit (Above Bottom Bar) -->
+    <div id="sticky-bottom-ad" class="sticky bottom-14 z-20 px-3 py-1 bg-gradient-to-t from-white dark:from-slate-900 via-white/80 dark:via-slate-900/80 to-transparent">
+      <div class="bg-slate-900 text-white rounded-xl p-2.5 shadow-xl flex items-center justify-between border border-slate-700/80 cursor-pointer tap-active" onclick="onAdClicked('Sticky Anchor Ad: Car Insurance')">
         <div class="flex items-center gap-2.5 overflow-hidden">
           <div class="w-8 h-8 rounded-lg bg-rose-600 flex items-center justify-center flex-shrink-0 text-sm font-bold">
             🛡️
@@ -192,7 +190,7 @@
           </div>
         </div>
         <div class="flex items-center gap-2 flex-shrink-0 ml-2">
-          <button class="bg-rose-600 hover:bg-rose-700 text-white text-[10px] font-bold px-2.5 py-1 rounded shadow">VIEW</button>
+          <button class="bg-rose-600 hover:bg-rose-700 text-white text-[10px] font-bold px-2.5 py-1 rounded shadow-xs">VIEW</button>
           <button id="dismiss-sticky-ad" class="text-slate-400 hover:text-white p-1" title="Close Ad">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
@@ -200,29 +198,29 @@
       </div>
     </div>
 
-    <!-- Mobile Bottom Navigation Bar -->
-    <nav class="fixed bottom-0 left-0 right-0 z-30 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-6 py-2 flex items-center justify-between max-w-lg mx-auto shadow-lg">
+    <!-- Mobile Bottom Navigation Bar (Fixed at bottom) -->
+    <nav class="fixed bottom-0 left-0 right-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 px-6 py-2 flex items-center justify-between max-w-md mx-auto shadow-lg">
       <!-- Home Tab -->
-      <button id="nav-home" onclick="switchTab('home')" class="nav-tab-btn flex flex-col items-center text-rose-600 dark:text-rose-400 tap-highlight">
+      <button id="nav-home" onclick="switchTab('home')" class="nav-tab-btn flex flex-col items-center text-rose-600 dark:text-rose-400 tap-active">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
         <span class="text-[10px] font-bold mt-0.5">Home</span>
       </button>
 
       <!-- Headlines Tab -->
-      <button id="nav-headlines" onclick="switchTab('headlines')" class="nav-tab-btn flex flex-col items-center text-slate-500 dark:text-slate-400 tap-highlight">
+      <button id="nav-headlines" onclick="switchTab('headlines')" class="nav-tab-btn flex flex-col items-center text-slate-500 dark:text-slate-400 tap-active">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
         <span class="text-[10px] font-semibold mt-0.5">Headlines</span>
       </button>
 
       <!-- Saved Articles Tab -->
-      <button id="nav-saved" onclick="switchTab('saved')" class="nav-tab-btn flex flex-col items-center text-slate-500 dark:text-slate-400 relative tap-highlight">
+      <button id="nav-saved" onclick="switchTab('saved')" class="nav-tab-btn flex flex-col items-center text-slate-500 dark:text-slate-400 relative tap-active">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
         <span id="saved-count-badge" class="absolute -top-1 -right-2 bg-rose-600 text-white text-[9px] font-bold w-4 h-4 rounded-full items-center justify-center hidden">0</span>
         <span class="text-[10px] font-semibold mt-0.5">Saved</span>
       </button>
 
       <!-- Interstitial Ad Demo Trigger -->
-      <button onclick="triggerInterstitial()" class="nav-tab-btn flex flex-col items-center text-slate-500 dark:text-slate-400 tap-highlight" title="Test Vignette Ad">
+      <button onclick="triggerInterstitial()" class="nav-tab-btn flex flex-col items-center text-slate-500 dark:text-slate-400 tap-active" title="Test Vignette Ad">
         <div class="relative">
           <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         </div>
@@ -230,16 +228,15 @@
       </button>
     </nav>
 
-    <!-- Full Article Reader View (Clean Mobile Slide-up Drawer) -->
-    <div id="article-modal" class="bottom-sheet closed fixed inset-0 z-50 bg-white dark:bg-slate-900 overflow-y-auto no-scrollbar max-w-lg mx-auto">
+    <!-- Full Article Reader View (Clean Mobile Screen) -->
+    <div id="article-modal" class="hidden fixed inset-0 z-50 bg-white dark:bg-slate-900 overflow-y-auto max-w-md mx-auto touch-scroll">
       <div id="article-content">
-        <!-- Injected dynamically via displayArticleModal() in app.js -->
+        <!-- Rendered by app.js -->
       </div>
     </div>
 
-    <!-- Google Vignette / Fullscreen Mobile Ad Popup -->
-    <div id="interstitial-ad-modal" class="hidden fixed inset-0 z-50 bg-black/90 flex flex-col items-center justify-between p-6 text-white backdrop-blur-md max-w-lg mx-auto">
-      <!-- Vignette Ad Top Header -->
+    <!-- Google Vignette / Fullscreen Ad Popup -->
+    <div id="interstitial-ad-modal" class="hidden fixed inset-0 z-50 bg-black/95 flex flex-col items-center justify-between p-6 text-white backdrop-blur-md max-w-md mx-auto">
       <div class="w-full flex items-center justify-between">
         <div class="flex items-center gap-1.5">
           <span class="bg-amber-400 text-black text-[9px] font-black px-1.5 py-0.5 rounded uppercase">AD</span>
@@ -252,8 +249,8 @@
 
       <!-- Vignette Ad Creative Card -->
       <div class="my-auto text-center max-w-xs flex flex-col items-center">
-        <div class="w-24 h-24 rounded-3xl bg-gradient-to-br from-rose-500 via-indigo-600 to-amber-500 p-1 shadow-2xl mb-4 transform hover:scale-105 transition">
-          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=300&q=80" alt="App Icon" class="w-full h-full object-cover rounded-[22px]" />
+        <div class="w-24 h-24 rounded-3xl p-1 shadow-2xl mb-4 transform hover:scale-105 transition">
+          <img src="${svgAdGame}" alt="Game Icon" class="w-full h-full object-cover rounded-[22px]" />
         </div>
         <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">#1 Ranked RPG of 2026</span>
         <h2 class="text-2xl font-extrabold mt-1 text-white">Pixel Quest 3D: Origins</h2>
@@ -279,7 +276,7 @@
           </div>
         </div>
 
-        <button onclick="onAdClicked('Pixel Quest 3D Install'); closeInterstitialAd();" class="mt-6 w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold py-3 px-6 rounded-xl shadow-xl hover:opacity-95 tap-highlight flex items-center justify-center gap-2">
+        <button onclick="onAdClicked('Pixel Quest 3D Install'); closeInterstitialAd();" class="mt-6 w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold py-3 px-6 rounded-xl shadow-xl hover:opacity-95 tap-active flex items-center justify-center gap-2">
           <span>INSTALL NOW</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </button>
@@ -291,32 +288,32 @@
     </div>
 
     <!-- Mobile Share Sheet Modal -->
-    <div id="share-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex flex-col justify-end max-w-lg mx-auto">
+    <div id="share-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex flex-col justify-end max-w-md mx-auto">
       <div class="bg-white dark:bg-slate-900 rounded-t-3xl p-5 border-t border-slate-200 dark:border-slate-700">
         <div class="w-12 h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full mx-auto mb-4"></div>
         <h3 class="font-bold text-sm text-slate-900 dark:text-slate-100 mb-1">Share ABP Story</h3>
         <p id="share-story-title" class="text-xs text-slate-500 truncate mb-4"></p>
         
         <div class="grid grid-cols-4 gap-3 text-center mb-5">
-          <button onclick="copyStoryLink()" class="flex flex-col items-center tap-highlight">
+          <button onclick="copyStoryLink()" class="flex flex-col items-center tap-active">
             <div class="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center mb-1 shadow-md">
               <span class="text-xl">💬</span>
             </div>
             <span class="text-[10px] font-medium text-slate-700 dark:text-slate-300">WhatsApp</span>
           </button>
-          <button onclick="copyStoryLink()" class="flex flex-col items-center tap-highlight">
+          <button onclick="copyStoryLink()" class="flex flex-col items-center tap-active">
             <div class="w-12 h-12 rounded-2xl bg-sky-500 text-white flex items-center justify-center mb-1 shadow-md">
               <span class="text-xl">✈️</span>
             </div>
             <span class="text-[10px] font-medium text-slate-700 dark:text-slate-300">Telegram</span>
           </button>
-          <button onclick="copyStoryLink()" class="flex flex-col items-center tap-highlight">
+          <button onclick="copyStoryLink()" class="flex flex-col items-center tap-active">
             <div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center mb-1 shadow-md">
               <span class="text-xl">𝕏</span>
             </div>
             <span class="text-[10px] font-medium text-slate-700 dark:text-slate-300">Twitter</span>
           </button>
-          <button onclick="copyStoryLink()" class="flex flex-col items-center tap-highlight">
+          <button onclick="copyStoryLink()" class="flex flex-col items-center tap-active">
             <div class="w-12 h-12 rounded-2xl bg-rose-600 text-white flex items-center justify-center mb-1 shadow-md">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
             </div>
@@ -324,7 +321,7 @@
           </button>
         </div>
 
-        <button onclick="closeShareModal()" class="w-full py-2.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-xl font-bold text-xs tap-highlight">
+        <button onclick="closeShareModal()" class="w-full py-2.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-xl font-bold text-xs tap-active">
           Cancel
         </button>
       </div>
@@ -335,6 +332,6 @@
 
   </div>
 
-  <script src="app.js?v=2026_coins"></script>
+  <script src="app.js?v=2026_clean_ui"></script>
 </body>
 </html>
