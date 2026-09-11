@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="bgCin" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4c0519"/>
+      <stop offset="50%" stop-color="#881337"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" fill="url(#bgCin)"/>
+  <rect x="200" y="110" width="400" height="220" rx="16" fill="#0f172a" stroke="#f43f5e" stroke-width="6"/>
+  <text x="400" y="195" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="46" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="4">VEDA 2099</text>
+  <text x="400" y="245" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="24" font-weight="bold" fill="#fb7185" text-anchor="middle">IMAX 3D GLOBAL RELEASE</text>
+  <text x="400" y="295" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="34" font-weight="900" fill="#facc15" text-anchor="middle">₹500 CR IN 3 DAYS</text>
+  <text x="400" y="415" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="20" font-weight="800" fill="#fecdd3" text-anchor="middle" letter-spacing="2">ALL-TIME BOX OFFICE RECORD</text>
+</svg>

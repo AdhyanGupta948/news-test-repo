@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="bgEv" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" fill="url(#bgEv)"/>
+  <path d="M220 260l40-70h280l40 70h60v50H160v-50h60z" fill="#38bdf8"/>
+  <circle cx="280" cy="310" r="35" fill="#0f172a" stroke="#38bdf8" stroke-width="6"/>
+  <circle cx="520" cy="310" r="35" fill="#0f172a" stroke="#38bdf8" stroke-width="6"/>
+  <path d="M390 140l-20 40h30l-20 40 40-50h-30l20-30z" fill="#facc15"/>
+  <text x="400" y="410" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">40% CITY ADOPTION</text>
+  <text x="400" y="445" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="18" font-weight="800" fill="#93c5fd" text-anchor="middle" letter-spacing="3">ELECTRIC VEHICLE SURGE</text>
+</svg>

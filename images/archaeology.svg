@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="bgArch" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#082f49"/>
+      <stop offset="50%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" fill="url(#bgArch)"/>
+  <path d="M260 340v-160h40v160 M380 340v-180h40v180 M500 340v-160h40v160" stroke="#f8fafc" stroke-width="8" stroke-linecap="round" opacity="0.8"/>
+  <path d="M220 180h360 M240 160h320" stroke="#f8fafc" stroke-width="8" stroke-linecap="round" opacity="0.8"/>
+  <text x="400" y="390" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="38" font-weight="900" fill="#ffffff" text-anchor="middle">4,000-YEAR-OLD PORT CITY</text>
+  <text x="400" y="425" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="20" font-weight="800" fill="#bae6fd" text-anchor="middle" letter-spacing="2">SUBMERGED OFF GUJARAT COAST</text>
+</svg>

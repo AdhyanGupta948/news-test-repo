@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="bgChip" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030712"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#082f49"/>
+    </linearGradient>
+    <linearGradient id="gNeon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" fill="url(#bgChip)"/>
+  <rect x="250" y="100" width="300" height="260" rx="24" fill="#0f172a" stroke="#38bdf8" stroke-width="6"/>
+  <rect x="290" y="140" width="220" height="180" rx="16" fill="url(#gNeon)" opacity="0.3"/>
+  <text x="400" y="225" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="52" font-weight="900" fill="#38bdf8" text-anchor="middle">2nm</text>
+  <text x="400" y="265" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="20" font-weight="800" fill="#e2e8f0" text-anchor="middle" letter-spacing="3">AI PROCESSOR</text>
+  <path d="M120 180h130 M120 230h130 M120 280h130 M550 180h130 M550 230h130 M550 280h130 M330 360v70 M400 360v70 M470 360v70 M330 50v50 M400 50v50 M470 50v50" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  <text x="400" y="430" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="22" font-weight="800" fill="#38bdf8" text-anchor="middle" letter-spacing="2">4-DAY SMARTPHONE BATTERY TECH</text>
+</svg>
