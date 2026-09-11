@@ -177,6 +177,105 @@ let isSpeaking = false;
 let speechSynth = window.speechSynthesis;
 let currentUtterance = null;
 let currentArticleFontSize = 14;
+let currentShareArticleId = 1;
+
+// ==========================================
+// GOOGLE ANALYTICS 4 (GA4) EVENT TRACKER
+// ==========================================
+let gaEventStats = {
+  pageViews: 1,
+  articlesRead: 0,
+  adClicks: 0,
+  totalEvents: 1
+};
+
+function trackGAEvent(eventName, params = {}) {
+  try {
+    gaEventStats.totalEvents++;
+    if (typeof window.gtag === "function") {
+      window.gtag("event", eventName, params);
+    }
+    // Real-time console logger so developer can immediately verify tracking live
+    console.log(`📊 [Google Analytics] Event: "${eventName}"`, params);
+    updateAnalyticsModalUI();
+  } catch (err) {
+    console.warn("[GA4 Tracking Warning]", err);
+  }
+}
+
+function updateAnalyticsModalUI() {
+  const viewsEl = document.getElementById("ga-counter-views");
+  const articlesEl = document.getElementById("ga-counter-articles");
+  const adsEl = document.getElementById("ga-counter-ads");
+  const idEl = document.getElementById("ga-modal-current-id");
+  const statusEl = document.getElementById("ga-modal-status-text");
+
+  if (viewsEl) viewsEl.textContent = gaEventStats.pageViews;
+  if (articlesEl) articlesEl.textContent = gaEventStats.articlesRead;
+  if (adsEl) adsEl.textContent = gaEventStats.adClicks;
+
+  const currentId = window.GA_MEASUREMENT_ID || localStorage.getItem("abp_ga_measurement_id") || "G-XXXXXXXXXX";
+  if (idEl) idEl.textContent = currentId;
+
+  if (statusEl) {
+    if (currentId && currentId !== "G-XXXXXXXXXX") {
+      statusEl.textContent = `Connected to ${currentId}. Streaming live events to Google Analytics.`;
+    } else {
+      statusEl.textContent = `Using default placeholder (G-XXXXXXXXXX). Enter your GA4 ID below.`;
+    }
+  }
+}
+
+function openAnalyticsModal() {
+  const modal = document.getElementById("analytics-modal");
+  if (modal) {
+    modal.classList.remove("hidden");
+    const input = document.getElementById("ga-custom-id-input");
+    const currentId = window.GA_MEASUREMENT_ID || localStorage.getItem("abp_ga_measurement_id") || "";
+    if (input && currentId !== "G-XXXXXXXXXX") {
+      input.value = currentId;
+    }
+    updateAnalyticsModalUI();
+    trackGAEvent("view_analytics_dashboard");
+  }
+}
+
+function closeAnalyticsModal() {
+  const modal = document.getElementById("analytics-modal");
+  if (modal) modal.classList.add("hidden");
+}
+
+function saveCustomGaId() {
+  const input = document.getElementById("ga-custom-id-input");
+  if (!input) return;
+  const rawVal = input.value.trim().toUpperCase();
+
+  if (!rawVal.startsWith("G-") || rawVal.length < 5) {
+    showToast("Please enter a valid GA4 ID starting with 'G-' (e.g. G-ABC12345)");
+    return;
+  }
+
+  localStorage.setItem("abp_ga_measurement_id", rawVal);
+  window.GA_MEASUREMENT_ID = rawVal;
+
+  // Update gtag script tag src dynamically
+  const scriptEl = document.getElementById("ga-tag-script");
+  if (scriptEl) {
+    scriptEl.src = `https://www.googletagmanager.com/gtag/js?id=${rawVal}`;
+  }
+
+  if (typeof window.gtag === "function") {
+    window.gtag("config", rawVal, {
+      send_page_view: true,
+      page_title: document.title,
+      page_location: window.location.href
+    });
+  }
+
+  updateAnalyticsModalUI();
+  showToast(`Google Analytics connected to ${rawVal}! ✅`);
+  trackGAEvent("measurement_id_configured", { measurement_id: rawVal });
+}
 
 // Initialize on DOM load
 document.addEventListener("DOMContentLoaded", () => {
@@ -184,6 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderStoriesBar();
   renderNews();
   updateBookmarkBadge();
+  updateAnalyticsModalUI();
 });
 
 // Render Visual Stories Bar
@@ -402,6 +502,19 @@ function openArticle(id) {
   const item = mockNews.find(n => n.id === id);
   if (!item) return;
 
+  gaEventStats.articlesRead++;
+  trackGAEvent("select_content", {
+    content_type: "article",
+    item_id: String(item.id),
+    item_name: item.title,
+    category: item.category
+  });
+  trackGAEvent("view_item", {
+    item_id: String(item.id),
+    item_name: item.title,
+    category: item.category
+  });
+
   // Interstitial Ad Trigger: Every 3rd article open triggers simulated full-screen Vignette ad
   interstitialIntervalTrigger++;
   if (interstitialIntervalTrigger % 3 === 0) {
@@ -548,6 +661,11 @@ function triggerInterstitial(onCloseCallback) {
   const skipBtn = document.getElementById("ad-skip-btn");
   if (!adModal || !skipBtn) return;
 
+  trackGAEvent("view_promotion", {
+    promotion_name: "Pixel Quest 3D: Origins",
+    creative_name: "google_vignette"
+  });
+
   interstitialCountdown = 5;
   skipBtn.disabled = true;
   skipBtn.innerHTML = `Skip Ad in ${interstitialCountdown}s`;
@@ -573,6 +691,7 @@ function triggerInterstitial(onCloseCallback) {
   window.closeInterstitialAd = () => {
     clearInterval(interstitialTimer);
     adModal.classList.add("hidden");
+    trackGAEvent("ad_skip", { ad_type: "google_vignette" });
     if (typeof onCloseCallback === "function") {
       onCloseCallback();
     }
@@ -582,12 +701,22 @@ function triggerInterstitial(onCloseCallback) {
 // Bookmarking System
 function toggleBookmark(id, isFromModal = false) {
   const index = bookmarks.indexOf(id);
+  const item = mockNews.find(n => n.id === id);
+
   if (index > -1) {
     bookmarks.splice(index, 1);
     showToast("Removed from saved stories");
+    trackGAEvent("remove_from_wishlist", {
+      item_id: String(id),
+      item_name: item ? item.title : ""
+    });
   } else {
     bookmarks.push(id);
     showToast("Saved to Bookmarks! 🔖");
+    trackGAEvent("add_to_wishlist", {
+      item_id: String(id),
+      item_name: item ? item.title : ""
+    });
   }
   localStorage.setItem("abp_news_bookmarks", JSON.stringify(bookmarks));
   updateBookmarkBadge();
@@ -614,12 +743,18 @@ function updateBookmarkBadge() {
 
 // Fake Ad Click Handler
 function onAdClicked(campaign) {
+  gaEventStats.adClicks++;
+  trackGAEvent("select_promotion", {
+    promotion_name: campaign,
+    creative_name: "sponsored_ad"
+  });
   showToast(`Ad clicked: "${campaign}" (Demo tracking logged)`);
 }
 
 function dismissTopAd() {
   const banner = document.getElementById("top-ad-banner");
   if (banner) banner.style.display = "none";
+  trackGAEvent("ad_dismiss", { ad_type: "top_header_banner" });
   showToast("Top banner closed");
 }
 
@@ -634,6 +769,7 @@ function toggleAudioSpeech(text) {
     if (playIcon) playIcon.classList.remove("hidden");
     if (pauseIcon) pauseIcon.classList.add("hidden");
     showToast("Audio narration paused");
+    trackGAEvent("audio_narration", { action: "pause" });
   } else {
     speechSynth.cancel();
     currentUtterance = new SpeechSynthesisUtterance(text);
@@ -656,6 +792,7 @@ function toggleAudioSpeech(text) {
     if (playIcon) playIcon.classList.add("hidden");
     if (pauseIcon) pauseIcon.classList.remove("hidden");
     showToast("Playing ABP AI voice narration 🔊");
+    trackGAEvent("audio_narration", { action: "play" });
   }
 }
 
@@ -671,12 +808,17 @@ function shareArticle(id) {
   const item = mockNews.find(n => n.id === id);
   if (!item) return;
 
+  currentShareArticleId = id;
   const shareModal = document.getElementById("share-modal");
   const shareTitle = document.getElementById("share-story-title");
   if (shareModal && shareTitle) {
     shareTitle.textContent = item.title;
     shareModal.classList.remove("hidden");
   }
+  trackGAEvent("share_intent", {
+    item_id: String(id),
+    item_name: item.title
+  });
 }
 
 function closeShareModal() {
@@ -688,6 +830,11 @@ function copyStoryLink() {
   navigator.clipboard?.writeText(window.location.href);
   closeShareModal();
   showToast("Story link copied to clipboard! 📋");
+  trackGAEvent("share", {
+    method: "clipboard_or_social",
+    content_type: "article",
+    item_id: String(currentShareArticleId || 1)
+  });
 }
 
 // Toast Feedback System
@@ -744,16 +891,24 @@ function setupEventListeners() {
       chip.classList.add("bg-rose-600", "text-white");
 
       currentCategory = chip.dataset.category;
+      trackGAEvent("select_category", { category_name: currentCategory });
       renderNews();
     });
   });
 
   // Search Input
   const searchInput = document.getElementById("search-input");
+  let searchDebounceTimer = null;
   if (searchInput) {
     searchInput.addEventListener("input", (e) => {
       searchQuery = e.target.value;
       renderNews();
+      clearTimeout(searchDebounceTimer);
+      if (searchQuery.trim().length > 1) {
+        searchDebounceTimer = setTimeout(() => {
+          trackGAEvent("search", { search_term: searchQuery.trim() });
+        }, 600);
+      }
     });
   }
 
@@ -765,6 +920,7 @@ function setupEventListeners() {
       const isDark = document.documentElement.classList.contains("dark");
       localStorage.setItem("abp_news_theme", isDark ? "dark" : "light");
       showToast(isDark ? "Dark mode enabled 🌙" : "Light mode enabled ☀️");
+      trackGAEvent("toggle_theme", { theme: isDark ? "dark" : "light" });
     });
 
     if (localStorage.getItem("abp_news_theme") === "dark") {
@@ -779,6 +935,7 @@ function setupEventListeners() {
     dismissStickyAdBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       stickyAdBanner.style.display = "none";
+      trackGAEvent("ad_dismiss", { ad_type: "sticky_bottom_banner" });
       showToast("Bottom banner closed");
     });
   }
@@ -799,5 +956,6 @@ function switchTab(tabName) {
   }
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  trackGAEvent("switch_tab", { tab_name: tabName });
   renderNews();
 }
