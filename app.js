@@ -1,221 +1,8 @@
 // ==========================================
-// SELF-CONTAINED EMBEDDED GRAPHICS (100% RELIABLE, ZERO BROKEN IMAGES)
-// ABP LIVE NEWS DATASET (Using local standalone SVG graphics)
+// ABP LIVE NEWS — HIGH RESOLUTION WEB IMAGERY
 // ==========================================
 
-const svgCoins = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
-  <defs>
-    <linearGradient id="bgC" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="%231e1b4b"/>
-      <stop offset="50%" stop-color="%233b0764"/>
-      <stop offset="100%" stop-color="%230f172a"/>
-    </linearGradient>
-    <linearGradient id="gGold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="%23fde047"/>
-      <stop offset="45%" stop-color="%23eab308"/>
-      <stop offset="85%" stop-color="%23b45309"/>
-      <stop offset="100%" stop-color="%2378350f"/>
-    </linearGradient>
-    <linearGradient id="gSilver" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="%23ffffff"/>
-      <stop offset="50%" stop-color="%23cbd5e1"/>
-      <stop offset="100%" stop-color="%23475569"/>
-    </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="%23000000" flood-opacity="0.6"/>
-    </filter>
-  </defs>
-  <rect width="800" height="480" fill="url(%23bgC)"/>
-  <circle cx="400" cy="220" r="140" fill="url(%23gGold)" stroke="%23fef08a" stroke-width="8" filter="url(%23shadow)"/>
-  <circle cx="400" cy="220" r="115" fill="none" stroke="%23b45309" stroke-width="4" stroke-dasharray="6,6"/>
-  <text x="400" y="255" font-family="system-ui,-apple-system,sans-serif" font-size="95" font-weight="900" fill="%2378350f" text-anchor="middle">₹1</text>
-  <text x="400" y="155" font-family="system-ui,-apple-system,sans-serif" font-size="18" font-weight="bold" fill="%2378350f" text-anchor="middle" letter-spacing="4">INDIA • 1985 • H</text>
-  
-  <circle cx="210" cy="250" r="90" fill="url(%23gSilver)" stroke="%23f1f5f9" stroke-width="6" filter="url(%23shadow)"/>
-  <circle cx="210" cy="250" r="75" fill="none" stroke="%2364748b" stroke-width="2" stroke-dasharray="4,4"/>
-  <text x="210" y="275" font-family="system-ui,-apple-system,sans-serif" font-size="60" font-weight="900" fill="%23334155" text-anchor="middle">₹2</text>
-  
-  <circle cx="590" cy="250" r="90" fill="url(%23gGold)" stroke="%23fef08a" stroke-width="6" filter="url(%23shadow)"/>
-  <circle cx="590" cy="250" r="75" fill="none" stroke="%23b45309" stroke-width="2" stroke-dasharray="4,4"/>
-  <text x="590" y="275" font-family="system-ui,-apple-system,sans-serif" font-size="60" font-weight="900" fill="%2378350f" text-anchor="middle">₹5</text>
-  
-  <rect x="180" y="390" width="440" height="42" rx="21" fill="%23f59e0b" opacity="0.2"/>
-  <text x="400" y="418" font-family="system-ui,-apple-system,sans-serif" font-size="20" font-weight="800" fill="%23fbbf24" text-anchor="middle" letter-spacing="2">RARE INDIAN COIN MARKET BOOM</text>
-</svg>`;
-
-const svgChip = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
-  <defs>
-    <linearGradient id="bgChip" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="%23030712"/>
-      <stop offset="50%" stop-color="%230f172a"/>
-      <stop offset="100%" stop-color="%23082f49"/>
-    </linearGradient>
-    <linearGradient id="gNeon" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="%2338bdf8"/>
-      <stop offset="100%" stop-color="%236366f1"/>
-    </linearGradient>
-  </defs>
-  <rect width="800" height="480" fill="url(%23bgChip)"/>
-  <rect x="250" y="100" width="300" height="260" rx="24" fill="%230f172a" stroke="%2338bdf8" stroke-width="6"/>
-  <rect x="290" y="140" width="220" height="180" rx="16" fill="url(%23gNeon)" opacity="0.25"/>
-  <text x="400" y="225" font-family="system-ui,-apple-system,sans-serif" font-size="52" font-weight="900" fill="%2338bdf8" text-anchor="middle">2nm</text>
-  <text x="400" y="265" font-family="system-ui,-apple-system,sans-serif" font-size="20" font-weight="800" fill="%23e2e8f0" text-anchor="middle" letter-spacing="3">AI PROCESSOR</text>
-  <path d="M120 180h130 M120 230h130 M120 280h130 M550 180h130 M550 230h130 M550 280h130 M330 360v70 M400 360v70 M470 360v70 M330 50v50 M400 50v50 M470 50v50" stroke="%2338bdf8" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
-  <text x="400" y="430" font-family="system-ui,-apple-system,sans-serif" font-size="22" font-weight="800" fill="%2338bdf8" text-anchor="middle" letter-spacing="2">4-DAY SMARTPHONE BATTERY TECH</text>
-</svg>`;
-
-const svgCricket = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
-  <defs>
-    <linearGradient id="bgCric" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="%23022c22"/>
-      <stop offset="50%" stop-color="%23064e3b"/>
-      <stop offset="100%" stop-color="%230f172a"/>
-    </linearGradient>
-    <linearGradient id="gGoldT" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="%23fef08a"/>
-      <stop offset="100%" stop-color="%23d97706"/>
-    </linearGradient>
-  </defs>
-  <rect width="800" height="480" fill="url(%23bgCric)"/>
-  <circle cx="400" cy="200" r="110" fill="url(%23gGoldT)" opacity="0.2"/>
-  <path d="M360 130h80v80c0 30-20 50-40 50s-40-20-40-50v-80z" fill="url(%23gGoldT)"/>
-  <rect x="385" y="260" width="30" height="60" fill="url(%23gGoldT)"/>
-  <rect x="350" y="320" width="100" height="20" rx="6" fill="url(%23gGoldT)"/>
-  <circle cx="240" cy="220" r="50" fill="%23dc2626"/>
-  <path d="M210 220a30 30 0 0 0 60 0" fill="none" stroke="%23ffffff" stroke-width="4" stroke-dasharray="3,3"/>
-  <circle cx="560" cy="220" r="50" fill="%232563eb"/>
-  <text x="400" y="390" font-family="system-ui,-apple-system,sans-serif" font-size="44" font-weight="900" fill="%23fde047" text-anchor="middle">₹20.5 CRORE</text>
-  <text x="400" y="430" font-family="system-ui,-apple-system,sans-serif" font-size="20" font-weight="800" fill="%236ee7b7" text-anchor="middle" letter-spacing="2">IPL 2026 MEGA AUCTION RECORD</text>
-</svg>`;
-
-const svgUpi = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
-  <defs>
-    <linearGradient id="bgUpi" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="%23064e3b"/>
-      <stop offset="50%" stop-color="%23042f2e"/>
-      <stop offset="100%" stop-color="%230f172a"/>
-    </linearGradient>
-    <linearGradient id="gUpi" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="%2334d399"/>
-      <stop offset="100%" stop-color="%23059669"/>
-    </linearGradient>
-  </defs>
-  <rect width="800" height="480" fill="url(%23bgUpi)"/>
-  <circle cx="400" cy="210" r="120" fill="url(%23gUpi)" stroke="%236ee7b7" stroke-width="8"/>
-  <text x="400" y="240" font-family="system-ui,-apple-system,sans-serif" font-size="70" font-weight="900" fill="%23ffffff" text-anchor="middle">UPI</text>
-  <text x="400" y="160" font-family="system-ui,-apple-system,sans-serif" font-size="16" font-weight="bold" fill="%23a7f3d0" text-anchor="middle" letter-spacing="4">OFFLINE SATELLITE MESH</text>
-  <path d="M400 60a170 170 0 0 1 120 50 M400 60a170 170 0 0 0-120 50" fill="none" stroke="%2334d399" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
-  <text x="400" y="415" font-family="system-ui,-apple-system,sans-serif" font-size="22" font-weight="800" fill="%2334d399" text-anchor="middle" letter-spacing="2">ZERO INTERNET DIRECT TRANSACTIONS</text>
-</svg>`;
-
-const svgEv = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
-  <defs>
-    <linearGradient id="bgEv" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="%230f172a"/>
-      <stop offset="50%" stop-color="%231e3a8a"/>
-      <stop offset="100%" stop-color="%230284c7"/>
-    </linearGradient>
-  </defs>
-  <rect width="800" height="480" fill="url(%23bgEv)"/>
-  <path d="M220 260l40-70h280l40 70h60v50H160v-50h60z" fill="%2338bdf8"/>
-  <circle cx="280" cy="310" r="35" fill="%230f172a" stroke="%2338bdf8" stroke-width="6"/>
-  <circle cx="520" cy="310" r="35" fill="%230f172a" stroke="%2338bdf8" stroke-width="6"/>
-  <path d="M390 140l-20 40h30l-20 40 40-50h-30l20-30z" fill="%23facc15"/>
-  <text x="400" y="410" font-family="system-ui,-apple-system,sans-serif" font-size="36" font-weight="900" fill="%23ffffff" text-anchor="middle">40% CITY ADOPTION</text>
-  <text x="400" y="445" font-family="system-ui,-apple-system,sans-serif" font-size="18" font-weight="800" fill="%2393c5fd" text-anchor="middle" letter-spacing="3">ELECTRIC VEHICLE SURGE</text>
-</svg>`;
-
-const svgCinema = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
-  <defs>
-    <linearGradient id="bgCin" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="%234c0519"/>
-      <stop offset="50%" stop-color="%23881337"/>
-      <stop offset="100%" stop-color="%230f172a"/>
-    </linearGradient>
-  </defs>
-  <rect width="800" height="480" fill="url(%23bgCin)"/>
-  <rect x="200" y="110" width="400" height="220" rx="16" fill="%230f172a" stroke="%23f43f5e" stroke-width="6"/>
-  <text x="400" y="195" font-family="system-ui,-apple-system,sans-serif" font-size="46" font-weight="900" fill="%23ffffff" text-anchor="middle" letter-spacing="4">VEDA 2099</text>
-  <text x="400" y="245" font-family="system-ui,-apple-system,sans-serif" font-size="24" font-weight="bold" fill="%23fb7185" text-anchor="middle">IMAX 3D GLOBAL RELEASE</text>
-  <text x="400" y="295" font-family="system-ui,-apple-system,sans-serif" font-size="34" font-weight="900" fill="%23facc15" text-anchor="middle">₹500 CR IN 3 DAYS</text>
-  <text x="400" y="415" font-family="system-ui,-apple-system,sans-serif" font-size="20" font-weight="800" fill="%23fecdd3" text-anchor="middle" letter-spacing="2">ALL-TIME BOX OFFICE RECORD</text>
-</svg>`;
-
-const svgArchaeology = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
-  <defs>
-    <linearGradient id="bgArch" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="%23082f49"/>
-      <stop offset="50%" stop-color="%230369a1"/>
-      <stop offset="100%" stop-color="%230284c7"/>
-    </linearGradient>
-  </defs>
-  <rect width="800" height="480" fill="url(%23bgArch)"/>
-  <path d="M260 340v-160h40v160 M380 340v-180h40v180 M500 340v-160h40v160" stroke="%23f8fafc" stroke-width="8" stroke-linecap="round" opacity="0.8"/>
-  <path d="M220 180h360 M240 160h320" stroke="%23f8fafc" stroke-width="8" stroke-linecap="round" opacity="0.8"/>
-  <text x="400" y="390" font-family="system-ui,-apple-system,sans-serif" font-size="38" font-weight="900" fill="%23ffffff" text-anchor="middle">4,000-YEAR-OLD PORT CITY</text>
-  <text x="400" y="425" font-family="system-ui,-apple-system,sans-serif" font-size="20" font-weight="800" fill="%23bae6fd" text-anchor="middle" letter-spacing="2">SUBMERGED OFF GUJARAT COAST</text>
-</svg>`;
-
-const svgCyber = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
-  <defs>
-    <linearGradient id="bgCyb" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="%230f172a"/>
-      <stop offset="50%" stop-color="%231e1b4b"/>
-      <stop offset="100%" stop-color="%234338ca"/>
-    </linearGradient>
-  </defs>
-  <rect width="800" height="480" fill="url(%23bgCyb)"/>
-  <path d="M400 110l120 45v90c0 90-120 145-120 145s-120-55-120-145v-90z" fill="%234f46e5" stroke="%23a5b4fc" stroke-width="8"/>
-  <circle cx="400" cy="220" r="35" fill="%23ffffff"/>
-  <rect x="390" y="220" width="20" height="35" rx="4" fill="%230f172a"/>
-  <text x="400" y="425" font-family="system-ui,-apple-system,sans-serif" font-size="24" font-weight="900" fill="%23c7d2fe" text-anchor="middle" letter-spacing="2">GLOBAL ANTI-RANSOMWARE TREATY</text>
-</svg>`;
-
-// Ad Graphics
-const svgAdCourse = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360">
-  <rect width="600" height="360" fill="%231e1b4b"/>
-  <rect x="40" y="40" width="520" height="280" rx="16" fill="%23312e81" stroke="%23818cf8" stroke-width="3"/>
-  <text x="300" y="110" font-family="system-ui,-apple-system,sans-serif" font-size="24" font-weight="bold" fill="%23a5b4fc" text-anchor="middle">NEXTGEN ACADEMY</text>
-  <text x="300" y="165" font-family="system-ui,-apple-system,sans-serif" font-size="34" font-weight="900" fill="%23ffffff" text-anchor="middle">MASTER AI &amp; CLOUD</text>
-  <rect x="180" y="200" width="240" height="40" rx="20" fill="%234f46e5"/>
-  <text x="300" y="226" font-family="system-ui,-apple-system,sans-serif" font-size="16" font-weight="bold" fill="%23ffffff" text-anchor="middle">100% PLACEMENT</text>
-  <text x="300" y="280" font-family="system-ui,-apple-system,sans-serif" font-size="18" font-weight="bold" fill="%23facc15" text-anchor="middle">★★★★★ 4.9 (50k+ Alumni)</text>
-</svg>`;
-
-const svgAdSolar = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360">
-  <rect width="600" height="360" fill="%23064e3b"/>
-  <circle cx="300" cy="130" r="65" fill="%23f59e0b"/>
-  <text x="300" y="240" font-family="system-ui,-apple-system,sans-serif" font-size="36" font-weight="900" fill="%23ffffff" text-anchor="middle">₹0 ELECTRICITY BILL</text>
-  <text x="300" y="280" font-family="system-ui,-apple-system,sans-serif" font-size="20" font-weight="bold" fill="%236ee7b7" text-anchor="middle">GET ₹78,000 GOVT SUBSIDY</text>
-  <text x="300" y="315" font-family="system-ui,-apple-system,sans-serif" font-size="15" font-weight="semibold" fill="%23a7f3d0" text-anchor="middle">PM SURYA GHAR YOJANA</text>
-</svg>`;
-
-const svgAdPhone = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360">
-  <rect width="600" height="360" fill="%230f172a"/>
-  <rect x="230" y="40" width="140" height="240" rx="20" fill="%231e293b" stroke="%2338bdf8" stroke-width="4"/>
-  <rect x="240" y="55" width="120" height="210" rx="14" fill="%230284c7"/>
-  <text x="300" y="165" font-family="system-ui,-apple-system,sans-serif" font-size="28" font-weight="900" fill="%23ffffff" text-anchor="middle">5G</text>
-  <text x="300" y="310" font-family="system-ui,-apple-system,sans-serif" font-size="24" font-weight="900" fill="%23f8fafc" text-anchor="middle">ONEPLUS NORD 5G</text>
-  <text x="300" y="340" font-family="system-ui,-apple-system,sans-serif" font-size="18" font-weight="bold" fill="%2338bdf8" text-anchor="middle">NOW AT ₹19,999 • AMAZON</text>
-</svg>`;
-
-const svgAdGame = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
-  <defs>
-    <linearGradient id="bgGame" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="%23f43f5e"/>
-      <stop offset="50%" stop-color="%238b5cf6"/>
-      <stop offset="100%" stop-color="%233b82f6"/>
-    </linearGradient>
-  </defs>
-  <rect width="300" height="300" rx="60" fill="url(%23bgGame)"/>
-  <circle cx="150" cy="140" r="75" fill="%23ffffff" opacity="0.2"/>
-  <text x="150" y="155" font-family="system-ui,-apple-system,sans-serif" font-size="64" text-anchor="middle">⚔️</text>
-  <text x="150" y="240" font-family="system-ui,-apple-system,sans-serif" font-size="22" font-weight="900" fill="%23ffffff" text-anchor="middle" letter-spacing="1">PIXEL QUEST 3D</text>
-</svg>`;
-
-// ==========================================
-// NEWS DATASET
-// ==========================================
+const FALLBACK_IMG = "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=800&q=80";
 
 const mockNews = [
   {
@@ -225,8 +12,7 @@ const mockNews = [
     source: "ABP Wealth Bureau",
     time: "10m ago",
     readTime: "3 min read",
-    image: svgCoins,
-    image: "images/coins.svg",
+    image: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80",
     summary: "Numismatic collectors and antique portals report a massive surge in demand for vintage British-era coins, 1985 series ₹1 coins, and rare Mata Vaishno Devi coins.",
     content: `NEW DELHI — In a viral financial phenomenon capturing the attention of households across India, the collector market for antique currency notes and rare coins has seen unprecedented demand on verified auction portals.
 
@@ -247,8 +33,7 @@ To determine if your old coins hold premium value, check the mint year, mint mar
     source: "ABP Tech Bureau",
     time: "32m ago",
     readTime: "3 min read",
-    image: svgChip,
-    image: "images/chip.svg",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
     summary: "New neuromorphic architecture dynamically idles cores, slashing standby drain while delivering 80 TOPS of local LLM performance.",
     content: `BENGALURU — Semiconductor engineers have revealed a commercial 2nm neuromorphic system-on-chip capable of running 70-billion parameter generative AI models directly on mobile devices without thermal throttling.
 
@@ -265,8 +50,7 @@ Several flagship Android smartphone manufacturers have already committed to depl
     source: "ABP Sports Live",
     time: "1h ago",
     readTime: "2 min read",
-    image: svgCricket,
-    image: "images/cricket.svg",
+    image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=800&q=80",
     summary: "An exhilarating 15-minute bidding duel saw the young pace-bowling all-rounder smash all previous uncapped player bidding records.",
     content: `MUMBAI — Thunderous applause echoed in the auction hall as the bidding paddle finally rested on an unprecedented ₹20.5 Crore bid. The 19-year-old speed sensation, who clocked speeds of 152 km/h in the domestic Ranji trophy season, became the most prized signing of the night.
 
@@ -281,8 +65,7 @@ Franchise coaches praised his death-overs yorker consistency and fearless lower-
     source: "ABP Business Live",
     time: "2h ago",
     readTime: "3 min read",
-    image: svgUpi,
-    image: "images/upi.svg",
+    image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80",
     summary: "Zero-connectivity digital payments now roll out across remote rural corridors and Himalayan trails via acoustic and satellite relay.",
     content: `NEW DELHI — In a major boost to financial inclusion, the central bank has rolled out UPI Offline Direct. Citizens in regions without cellular or Wi-Fi connectivity can now complete instant cryptographic transactions using low-power hardware handshakes.
 
@@ -297,8 +80,7 @@ The pilot test across 1,200 rural panchayats demonstrated 99.98% ledger settleme
     source: "ABP Auto Bureau",
     time: "3h ago",
     readTime: "4 min read",
-    image: svgEv,
-    image: "images/ev.svg",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
     summary: "Rapid expansion of ultra-fast highway charging corridors and localized battery manufacturing fuels unprecedented consumer adoption.",
     content: `NEW DELHI — The latest quarterly transportation analytics indicate a seismic shift in personal mobility. Electric two-wheelers and passenger cars accounted for 41.2% of newly registered consumer vehicles across metropolitan clusters.
 
@@ -313,8 +95,7 @@ City municipal corporations have installed over 14,000 rapid charging stations i
     source: "ABP Cinema Desk",
     time: "4h ago",
     readTime: "2 min read",
-    image: svgCinema,
-    image: "images/cinema.svg",
+    image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80",
     summary: "Stunning visual effects rendered using real-time generative neural engines win over audiences across 85 countries.",
     content: `HYDERABAD — The much-anticipated sci-fi spectacle 'Veda 2099' has rewritten global theatrical records, grossing upwards of ₹540 Crore in its opening weekend.
 
@@ -329,8 +110,7 @@ With IMAX halls running around-the-clock screenings, critics have hailed the pro
     source: "ABP Special Bureau",
     time: "5h ago",
     readTime: "5 min read",
-    image: svgArchaeology,
-    image: "images/archaeology.svg",
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80",
     summary: "Marine archaeologists using acoustic sonar uncover massive granite docks, seal engravings, and trade artifacts dating back to Bronze Age.",
     content: `GUJARAT — Subsea bathymetric surveys have pinpointed a sprawling sunken port city spanning over 12 square kilometers. Initial acoustic scans reveal organized grid roadways, multi-chambered warehouses, and ceremonial plazas.
 
@@ -345,8 +125,7 @@ Recovered bronze tablets and lapis lazuli beads point to ancient maritime trade 
     source: "ABP Global News",
     time: "6h ago",
     readTime: "3 min read",
-    image: svgCyber,
-    image: "images/cyber.svg",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
     summary: "Historic Geneva accord mandates international intelligence sharing and immediate freezing of illicit crypto ransomware wallets.",
     content: `GENEVA — High-level delegates concluded marathon negotiations today, ratifying the Global Cyber Resilience Accord. Under the treaty, participating states agree to harmonize extraditions of cyber syndicates and establish zero-tolerance enforcement against digital extortion networks.`,
     featured: false,
@@ -363,8 +142,7 @@ const mockAds = [
     brand: "NextGen Tech Institute",
     tagline: "100% Placement Assistance with leading tech companies. 50,000+ Alumni.",
     cta: "Apply for ₹25,000 Scholarship",
-    image: svgAdCourse,
-    image: "images/ad-course.svg",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80",
     rating: "4.9 ★★★★★",
   },
   {
@@ -374,8 +152,7 @@ const mockAds = [
     brand: "Tata Solar Power",
     tagline: "Claim up to ₹78,000 direct govt subsidy in your bank account today.",
     cta: "Calculate Roof Savings",
-    image: svgAdSolar,
-    image: "images/ad-solar.svg",
+    image: "https://images.unsplash.com/photo-1545208942-e1c9c916524b?auto=format&fit=crop&w=600&q=80",
     rating: "Over 60k homes electrified",
   },
   {
@@ -385,8 +162,7 @@ const mockAds = [
     brand: "Amazon India",
     tagline: "Flat ₹3,000 instant bank discount + No-cost EMI up to 12 months.",
     cta: "Check Availability",
-    image: svgAdPhone,
-    image: "images/ad-phone.svg",
+    image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=600&q=80",
     rating: "Free Prime Same-Day Delivery",
   }
 ];
@@ -416,24 +192,18 @@ function renderStoriesBar() {
   if (!container) return;
 
   const storiesData = [
-    { title: "Old Coins", tag: "Money", img: svgCoins, id: 1 },
-    { title: "2nm AI", tag: "AI", img: svgChip, id: 2 },
-    { title: "IPL ₹20.5Cr", tag: "Sports", img: svgCricket, id: 3 },
-    { title: "Offline UPI", tag: "India", img: svgUpi, id: 4 },
-    { title: "EV Boom", tag: "Auto", img: svgEv, id: 5 },
-    { title: "Veda 2099", tag: "Cinema", img: svgCinema, id: 6 },
-    { title: "Old Coins", tag: "Money", img: "images/coins.svg", id: 1 },
-    { title: "2nm AI", tag: "AI", img: "images/chip.svg", id: 2 },
-    { title: "IPL ₹20.5Cr", tag: "Sports", img: "images/cricket.svg", id: 3 },
-    { title: "Offline UPI", tag: "India", img: "images/upi.svg", id: 4 },
-    { title: "EV Boom", tag: "Auto", img: "images/ev.svg", id: 5 },
-    { title: "Veda 2099", tag: "Cinema", img: "images/cinema.svg", id: 6 },
+    { title: "Old Coins", tag: "Money", img: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=400&q=80", id: 1 },
+    { title: "2nm AI", tag: "AI", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80", id: 2 },
+    { title: "IPL ₹20.5Cr", tag: "Sports", img: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=400&q=80", id: 3 },
+    { title: "Offline UPI", tag: "India", img: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=400&q=80", id: 4 },
+    { title: "EV Boom", tag: "Auto", img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=400&q=80", id: 5 },
+    { title: "Veda 2099", tag: "Cinema", img: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=400&q=80", id: 6 },
   ];
 
   container.innerHTML = storiesData.map(s => `
     <div class="flex flex-col items-center flex-shrink-0 cursor-pointer tap-active" onclick="openArticle(${s.id})">
-      <div class="w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-rose-600 via-amber-500 to-rose-700 shadow-sm">
-        <img src="${s.img}" alt="${s.title}" class="w-full h-full object-cover rounded-full border-2 border-white dark:border-slate-900" />
+      <div class="w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-rose-600 via-amber-500 to-rose-700 shadow-sm overflow-hidden">
+        <img src="${s.img}" alt="${s.title}" class="w-full h-full object-cover rounded-full border-2 border-white dark:border-slate-900" onerror="this.onerror=null; this.src='${FALLBACK_IMG}';" loading="lazy" />
       </div>
       <span class="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mt-1 truncate w-16 text-center">${s.title}</span>
     </div>
@@ -501,8 +271,8 @@ function renderNews() {
     html += `
       <!-- Top Breaking Hero Story Card -->
       <article class="relative rounded-2xl overflow-hidden shadow-sm bg-white dark:bg-slate-800 cursor-pointer tap-active border border-slate-200/80 dark:border-slate-800 mb-4" onclick="openArticle(${heroItem.id})">
-        <div class="relative h-56 w-full bg-slate-900">
-          <img src="${heroItem.image}" alt="${heroItem.title}" class="w-full h-full object-cover" />
+        <div class="relative h-56 w-full bg-slate-900 overflow-hidden">
+          <img src="${heroItem.image}" alt="${heroItem.title}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='${FALLBACK_IMG}';" loading="eager" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
           
           <div class="absolute top-3 left-3 flex gap-1.5 items-center">
@@ -564,7 +334,7 @@ function renderNews() {
           </div>
         </div>
         <div class="w-24 h-24 flex-shrink-0 rounded-xl overflow-hidden bg-slate-900 relative shadow-sm">
-          <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover" />
+          <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='${FALLBACK_IMG}';" loading="lazy" />
         </div>
       </article>
     `;
@@ -573,7 +343,7 @@ function renderNews() {
   // Mid-Feed Medium Rectangle Ad (Google AdSense 300x250 simulation)
   if (mockAds[2] && list.length > 2) {
     html += `
-      <div class="my-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-850 p-3 shadow-sm cursor-pointer tap-active" onclick="onAdClicked('${mockAds[2].title}')">
+      <div class="my-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 p-3 shadow-sm cursor-pointer tap-active" onclick="onAdClicked('${mockAds[2].title}')">
         <div class="flex items-center justify-between mb-2">
           <div class="flex items-center gap-1.5">
             <span class="bg-amber-400 text-slate-900 text-[8px] font-black px-1.5 py-0.5 rounded tracking-wider">AD</span>
@@ -582,7 +352,7 @@ function renderNews() {
           <span class="text-[10px] text-slate-400">AdChoices ⓘ</span>
         </div>
         <div class="h-36 w-full rounded-lg overflow-hidden relative mb-2 bg-slate-900">
-          <img src="${mockAds[2].image}" alt="${mockAds[2].title}" class="w-full h-full object-cover" />
+          <img src="${mockAds[2].image}" alt="${mockAds[2].title}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='${FALLBACK_IMG}';" loading="lazy" />
         </div>
         <h4 class="text-xs font-bold text-slate-900 dark:text-slate-100">${mockAds[2].title}</h4>
         <p class="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5">${mockAds[2].tagline}</p>
@@ -620,7 +390,7 @@ function renderNativeAd(ad) {
           </div>
         </div>
         <div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-slate-900">
-          <img src="${ad.image}" alt="${ad.title}" class="w-full h-full object-cover" />
+          <img src="${ad.image}" alt="${ad.title}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='${FALLBACK_IMG}';" loading="lazy" />
         </div>
       </div>
     </div>
@@ -677,8 +447,8 @@ function displayArticleModal(item) {
     </div>
 
     <!-- Article Hero Graphic Banner -->
-    <div class="relative w-full h-64 bg-slate-900">
-      <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover" />
+    <div class="relative w-full h-64 bg-slate-900 overflow-hidden">
+      <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='${FALLBACK_IMG}';" loading="eager" />
       <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
 
       <div class="absolute bottom-4 left-4 right-4 text-white">
