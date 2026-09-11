@@ -1,0 +1,93 @@
+/* Mobile-first styling for ABP LIVE News Web App */
+
+/* Hide scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Breaking News Ticker Animation */
+@keyframes ticker {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.ticker-content {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker 28s linear infinite;
+}
+
+.ticker-content:hover {
+  animation-play-state: paused;
+}
+
+/* Pulsing Live Beacon */
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.4; }
+  100% { transform: scale(0.95); opacity: 1; }
+}
+
+.pulse-beacon {
+  animation: pulse-ring 1.8s ease-in-out infinite;
+}
+
+/* Bottom Sheet / Article Drawer */
+.bottom-sheet {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bottom-sheet.closed {
+  transform: translateY(100%);
+  pointer-events: none;
+}
+
+.bottom-sheet.open {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Line Clamps */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Tap Feedback */
+.tap-highlight:active {
+  transform: scale(0.98);
+  opacity: 0.92;
+}
+
+/* Google AdSense / Native Ad Styling */
+.ad-container {
+  position: relative;
+  background-color: #f8fafc;
+}
+
+.dark .ad-container {
+  background-color: #0f172a;
+}
+
+.ad-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
